@@ -1,5 +1,5 @@
 <template>
-	<div>투두리스트</div>
+	<div></div>
 </template>
 
 <script setup lang="ts"></script>

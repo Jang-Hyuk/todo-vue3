@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { reactive, computed } from 'vue';
 
 const state = reactive({
 	count: 20,
@@ -8,6 +8,10 @@ const state = reactive({
 function increasement() {
 	state.count += 1;
 }
+
+const countMsg = computed(() => {
+	return state.count + '안녕?';
+});
 </script>
 
 <template>
@@ -16,6 +20,7 @@ function increasement() {
 		<div>
 			<button @click="increasement">숫자 추가</button>
 			{{ state.count }}
+			{{ countMsg }}
 		</div>
 	</div>
 </template>
