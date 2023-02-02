@@ -1,5 +1,7 @@
 <template>
-	<TodoHeader />
+	<header>
+		<TodoHeader />
+	</header>
 	<main>
 		<TodoForm />
 		<TodoList />
