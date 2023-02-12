@@ -4,8 +4,12 @@ import { RouterLink, RouterView } from 'vue-router';
 
 <template>
 	<header>
-		<RouterLink to="/">Home</RouterLink>
-		<RouterLink to="/todo">Todo</RouterLink>
+		<RouterLink to="/">VBase</RouterLink>
+		<RouterLink to="/optionSetup">VBase3</RouterLink>
+		<RouterLink to="/composition">VBase3Setup</RouterLink>
+		<!-- <RouterLink to="/optionTs">(TS)VBase</RouterLink> -->
+		<RouterLink to="/optionSetupTs">(TS)VBase3</RouterLink>
+		<RouterLink to="/compositionTs">(TS)VBase3Setup</RouterLink>
 	</header>
 	<RouterView />
 </template>

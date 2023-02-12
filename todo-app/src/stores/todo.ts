@@ -4,7 +4,7 @@ import { defineStore } from 'pinia';
 export interface Task {
 	title: string;
 	contents: string;
-	isDone: boolean;
+	isDone?: boolean;
 }
 
 export const useTodoStore = defineStore('todo', () => {
@@ -46,6 +46,8 @@ export const useTodoStore = defineStore('todo', () => {
 	}
 
 	function deleteTodo(todo: typeof task) {
+		console.log('🚀 ~ file: todo.ts:49 ~ todo', todo);
+
 		const targetIndex = list.value.findIndex(task => task === todo);
 		if (targetIndex === -1) {
 			return false;
