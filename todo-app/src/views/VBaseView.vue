@@ -1,14 +1,15 @@
 <template>
 	<div>
 		VBaseView
-		<input type="text" ref="input" />
-		{{ count }}
-		multiply: {{ multiply }} watch: {{ time }}
-		<button type="button" @click="increase">증가</button>
+		<TodoHeader></TodoHeader>
+		<TodoList></TodoList>
 	</div>
 </template>
 
 <script>
+import TodoHeader from '@/components/optionApi/TodoHeader.vue';
+import TodoList from '@/components/optionApi/TodoList.vue';
+
 export default {
 	data() {
 		return {
@@ -39,12 +40,9 @@ export default {
 		this.someObject = object;
 		console.log(this.someObject === object);
 		console.log(this.someObject.a === object.a);
-
 		const { a } = this.someObject;
-
 		console.log(a === object.a);
 		console.log(a === this.someObject.a);
-
 		this.$refs.input.focus();
 	},
 	methods: {
@@ -52,6 +50,7 @@ export default {
 			this.count += 1;
 		},
 	},
+	components: { TodoHeader, TodoList },
 };
 </script>
 
