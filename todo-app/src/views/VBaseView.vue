@@ -37,13 +37,13 @@ export default {
 		const object = {
 			a: {},
 		};
-		this.someObject = object;
-		console.log(this.someObject === object);
-		console.log(this.someObject.a === object.a);
-		const { a } = this.someObject;
-		console.log(a === object.a);
-		console.log(a === this.someObject.a);
-		this.$refs.input.focus();
+		// this.someObject = object;
+		// console.log(this.someObject === object);
+		// console.log(this.someObject.a === object.a);
+		// const { a } = this.someObject;
+		// console.log(a === object.a);
+		// console.log(a === this.someObject.a);
+		// this.$refs.input.focus();
 	},
 	methods: {
 		increase() {
