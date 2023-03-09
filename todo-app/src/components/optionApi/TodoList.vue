@@ -1,14 +1,21 @@
 <template>
 	<div>
 		TodoList
-		<TodoItem></TodoItem>
+		<TodoItem v-for="(item, index) in todoList" :key="index"></TodoItem>
 	</div>
 </template>
 
 <script>
 import TodoItem from '@/components/optionApi/TodoItem.vue';
+import { useTodoOptionApiStore } from '@/stores/todoOptionApi';
+import { mapState } from 'pinia';
 
-export default { components: { TodoItem } };
+export default {
+	components: { TodoItem },
+	computed: {
+		...mapState(useTodoOptionApiStore, ['todoList']),
+	},
+};
 </script>
 
 <style lang="scss" scoped></style>
