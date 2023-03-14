@@ -14,7 +14,12 @@ export const useTodoOptionApiStore = () => {
 		}),
 		getters: {},
 		actions: {
-			addTodo() {},
+			addTodo(todo: Todo['title']) {
+				this.todoList.push({
+					title: todo,
+					isDone: false,
+				});
+			},
 			removeTodo() {},
 			updateTodo() {},
 			initialize() {

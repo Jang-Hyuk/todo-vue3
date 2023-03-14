@@ -1,19 +1,33 @@
 <template>
 	<div>
-		<input type="text" placeholder="너의 할일을 적어라" />
+		<input
+			type="text"
+			placeholder="너의 할일을 적어라"
+			v-model.trim="todoTitle"
+			@keyup.enter="executeCreate"
+		/>
+		<input type="button" value="입력" @click="executeCreate" />
 	</div>
 </template>
 
 <script>
-import _ from 'lodash';
-// import { useTodoOptionApiStore } from '@/stores/todoOptionApi';
-// const todoOptionApiStore = useTodoOptionApiStore();
+import { mapActions } from 'pinia';
+import { useTodoOptionApiStore } from '@/stores/todoOptionApi';
 export default {
 	data() {
 		return {
-			cText: '',
-			tText: '',
+			todoTitle: '',
 		};
+	},
+	methods: {
+		...mapActions(useTodoOptionApiStore, ['addTodo']),
+		executeCreate() {
+			if (!this.todoTitle) {
+				return alert('입력해');
+			}
+			this.addTodo(this.todoTitle);
+			this.todoTitle = '';
+		},
 	},
 };
 </script>
