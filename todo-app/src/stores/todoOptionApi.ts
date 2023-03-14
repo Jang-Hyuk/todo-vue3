@@ -3,6 +3,7 @@ import { defineStore } from 'pinia';
 interface Todo {
 	title: string;
 	isDone: boolean;
+	id: number;
 }
 
 export const useTodoOptionApiStore = () => {
@@ -11,6 +12,7 @@ export const useTodoOptionApiStore = () => {
 			isInit: false,
 			todoList: [] as Todo[],
 			todo: {} as Todo,
+			id: 0,
 		}),
 		getters: {},
 		actions: {
@@ -18,10 +20,25 @@ export const useTodoOptionApiStore = () => {
 				this.todoList.push({
 					title: todo,
 					isDone: false,
+					id: this.id++,
 				});
 			},
-			removeTodo() {},
-			updateTodo() {},
+			deleteTodo(todoId: Todo['id']) {
+				const todoIndex = this.todoList.findIndex(todo => todo.id === todoId);
+				if (todoIndex !== -1) {
+					this.todoList.splice(todoIndex, 1);
+				}
+			},
+			updateTodo(todoId: Todo['id'], todo: Todo) {
+				const todoIndex = this.todoList.findIndex(todo => todo.id === todoId);
+				if (todoIndex !== -1) {
+					this.todoList[todoIndex] = todo;
+				}
+			},
+			getTodo(todoId: Todo['id']) {
+				const todoIndex = this.todoList.findIndex(todo => todo.id === todoId);
+				return this.todoList[todoIndex];
+			},
 			initialize() {
 				if (this.isInit) {
 					return false;

@@ -1,7 +1,12 @@
 <template>
 	<div>
 		TodoList
-		<TodoItem v-for="(item, index) in todoList" :key="index"></TodoItem>
+		<TodoItem
+			v-for="(item, index) in todoList"
+			:key="index"
+			:todo-item="item"
+			:item-id="item.id"
+		></TodoItem>
 	</div>
 </template>
 
@@ -14,6 +19,9 @@ export default {
 	components: { TodoItem },
 	computed: {
 		...mapState(useTodoOptionApiStore, ['todoList']),
+	},
+	methods: {
+		name() {},
 	},
 };
 </script>
