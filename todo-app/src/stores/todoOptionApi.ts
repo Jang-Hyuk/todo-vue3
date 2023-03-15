@@ -9,18 +9,24 @@ interface Todo {
 export const useTodoOptionApiStore = () => {
 	const innerStore = defineStore('todoOptionApi', {
 		state: () => ({
+			localStorageName: 'todoOptionApi',
 			isInit: false,
 			todoList: [] as Todo[],
 			todo: {} as Todo,
-			id: 0,
 		}),
 		getters: {},
 		actions: {
+			updateStorage() {
+				localStorage.setItem(
+					this.localStorageName,
+					JSON.stringify(this.todoList),
+				);
+			},
 			addTodo(todo: Todo['title']) {
 				this.todoList.push({
 					title: todo,
 					isDone: false,
-					id: this.id++,
+					id: new Date().getTime(),
 				});
 			},
 			deleteTodo(todoId: Todo['id']) {
@@ -44,8 +50,7 @@ export const useTodoOptionApiStore = () => {
 					return false;
 				}
 				this.isInit = true;
-				localStorage.setItem('time', new Date().getTime().toString());
-				const todoValue = localStorage.getItem('todoOptionApi');
+				const todoValue = localStorage.getItem(this.localStorageName);
 				if (todoValue === null) {
 					return false;
 				}

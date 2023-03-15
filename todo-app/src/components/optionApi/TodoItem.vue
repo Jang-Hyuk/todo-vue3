@@ -1,8 +1,11 @@
 <template>
 	<div>
 		<input v-model="todo.isDone" type="checkbox" />
-		{{ todo?.title }}
-		<input type="button" value="삭제" @click="$emit('delete', itemId)" />
+		<span :style="{ textDecoration: todo.isDone ? 'line-through' : '' }">
+			{{ todo?.title }}
+		</span>
+
+		<input type="button" value="삭제" @click="deleteTodo(itemId)" />
 	</div>
 </template>
 
@@ -16,12 +19,6 @@ export default {
 			type: Number,
 			default: 0,
 		},
-		// todoItem: {
-		// 	type: Object,
-		// 	default() {
-		// 		return {};
-		// 	},
-		// },
 	},
 	computed: {
 		todo() {
@@ -34,7 +31,7 @@ export default {
 	},
 	methods: {
 		...mapActions(useTodoOptionApiStore, ['getTodo', 'deleteTodo', 'updateTodo']),
-		name() {},
+		hi() {},
 	},
 };
 </script>

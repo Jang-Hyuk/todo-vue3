@@ -1,6 +1,7 @@
 <template>
 	<div>
 		TodoList
+		<input type="button" value="스토리지 동기화" @click="updateStorage" />
 		<TodoItem
 			v-for="(item, index) in todoList"
 			:key="index"
@@ -11,9 +12,9 @@
 </template>
 
 <script>
-import TodoItem from '@/components/optionApi/TodoItem.vue';
+import { mapState, mapActions } from 'pinia';
 import { useTodoOptionApiStore } from '@/stores/todoOptionApi';
-import { mapState } from 'pinia';
+import TodoItem from '@/components/optionApi/TodoItem.vue';
 
 export default {
 	components: { TodoItem },
@@ -21,7 +22,8 @@ export default {
 		...mapState(useTodoOptionApiStore, ['todoList']),
 	},
 	methods: {
-		name() {},
+		...mapActions(useTodoOptionApiStore, ['updateStorage']),
+		hi() {},
 	},
 };
 </script>
