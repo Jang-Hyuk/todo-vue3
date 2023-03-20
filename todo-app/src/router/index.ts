@@ -11,11 +11,11 @@ const router = createRouter({
 			name: 'optionApi',
 			component: VBaseView,
 		},
-		{
-			path: '/optionSetup',
-			name: 'optionSetup',
-			component: () => import('@/views/VBase3View.vue'),
-		},
+		// {
+		// 	path: '/optionSetup',
+		// 	name: 'optionSetup',
+		// 	component: () => import('@/views/VBase3View.vue'),
+		// },
 		{
 			path: '/composition',
 			name: 'compositionAPI',

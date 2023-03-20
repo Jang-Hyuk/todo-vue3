@@ -1,16 +1,21 @@
 <template>
 	<div>
-		VBase3SetupView
-		{{ state.count }}
-		{{ state.info.num }}
-
-		multiply: {{ multiply }} watch: {{ state.time }}
-		<button @click="increase">증가</button>
+		<TodoHeader></TodoHeader>
+		<TodoList
+			v-for="(item, index) in todoList"
+			:key="index"
+			:todo-id="item.id"
+		></TodoList>
 	</div>
 </template>
 
 <script setup>
+import TodoHeader from '@/components/compositionApi/TodoHeader.vue';
+import TodoList from '@/components/compositionApi/TodoList.vue';
+import { useTodoOptionSetupStore } from '@/stores/todoComposition';
 import { reactive, computed, watch } from 'vue';
+
+const { todoList } = useTodoOptionSetupStore();
 
 const state = reactive({
 	count: 0,

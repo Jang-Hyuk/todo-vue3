@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from 'vue-router';
 <template>
 	<header>
 		<RouterLink to="/">VBase</RouterLink>
-		<RouterLink to="/optionSetup">VBase3</RouterLink>
+		<!-- <RouterLink to="/optionSetup">VBase3</RouterLink> -->
 		<RouterLink to="/composition">VBase3Setup</RouterLink>
 		<!-- <RouterLink to="/optionTs">(TS)VBase</RouterLink> -->
 		<RouterLink to="/optionSetupTs">(TS)VBase3</RouterLink>
