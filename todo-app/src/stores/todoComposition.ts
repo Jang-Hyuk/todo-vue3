@@ -1,4 +1,4 @@
-import { reactive, ref } from 'vue';
+import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
 interface Todo {
@@ -26,6 +26,7 @@ export const useTodoOptionSetupStore = defineStore('todoOptionSetup', () => {
 
 	function deleteTodo(todoId: Todo['id']) {
 		const todoIndex = todoList.value.findIndex(todo => todo.id === todoId);
+		console.log('🚀 ~ file: todoComposition.ts:29 ~ todoIndex:', todoIndex);
 		if (todoIndex === -1) {
 			return false;
 		}

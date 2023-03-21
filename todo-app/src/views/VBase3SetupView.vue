@@ -1,11 +1,7 @@
 <template>
 	<div>
 		<TodoHeader></TodoHeader>
-		<TodoList
-			v-for="(item, index) in todoList"
-			:key="index"
-			:todo-id="item.id"
-		></TodoList>
+		<TodoList></TodoList>
 	</div>
 </template>
 
