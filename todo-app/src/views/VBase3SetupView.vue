@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<TodoHeader></TodoHeader>
+		<button @click="updateStorage">동기화</button>
 		<TodoList></TodoList>
 	</div>
 </template>
@@ -11,7 +12,7 @@ import TodoList from '@/components/compositionApi/TodoList.vue';
 import { useTodoOptionSetupStore } from '@/stores/todoComposition';
 import { reactive, computed, watch } from 'vue';
 
-const { todoList } = useTodoOptionSetupStore();
+const { todoList, updateStorage } = useTodoOptionSetupStore();
 
 const state = reactive({
 	count: 0,
