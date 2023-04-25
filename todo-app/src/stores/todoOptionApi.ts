@@ -41,7 +41,7 @@ export const useTodoOptionApiStore = () => {
 					this.todoList[todoIndex] = todo;
 				}
 			},
-			getTodo(todoId: Todo['id']) {
+			getTodo(todoId: Todo['id']): Todo {
 				const todoIndex = this.todoList.findIndex(todo => todo.id === todoId);
 				return this.todoList[todoIndex];
 			},
